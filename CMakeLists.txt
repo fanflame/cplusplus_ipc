@@ -11,6 +11,6 @@ add_executable(ipc
 #        share_memory.cpp
 #        share_memory_1.cpp
 #        msgqueue.cpp
-        msgqueue_server.cpp
+#        msgqueue_server.cpp
 #        msgqueue_client.cpp
-        )
+        mmap.cpp)

@@ -41,11 +41,10 @@ alarm函数：定时一段时间发出信号给当前进程，终止进程；
 sleep;while(1)；
 pause()与sleep状态一样；
  
-### ipc对象：
-#### 共享内存
-##### 特点
+### 共享内存
+#### 特点
 共享内存读完之后，内容还存在；
-##### 使用
+#### 使用
 ```
 key_t	ftok(const char *, int);//创建key
 int	shmget(key_t, size_t, int);//创建共享内存对象
@@ -53,22 +52,30 @@ void	*shmat (int, const void *, int);//内存映射
 int	shmdt(const void *);//将用户空间的内存释放
 int	shmctl(int, int, struct shmid_ds *)//将内核空间的内存释放
 ```
-#### 消息队列
-##### 特点
+### 消息队列
+#### 特点
 链式队列；
 读完内容之后，消息就删除了；
 一个消息队列可以供两个进程双向通信
-##### 使用
+#### 使用
 ```
 int msgget(key_t, int);//创建消息队列对象
 int msgsnd(int, const void *, size_t, int)//发送消息
 ssize_t msgrcv(int, void *, size_t, long, int)//接收消息
 int msgctl(int, int, struct msqid_ds *)//删除、设置读取消息队列对象
 ```
-#### 信号灯
-##### 特点
+### 信号灯
+#### 特点
 进程、线程间同步
 略
+
+### 内存映射
+#### 使用
+```
+void *	mmap(void *, size_t, int, int, int, off_t);//内存映射
+int	munmap(void *, size_t)；//释放
+```
+内存映射完成之后，可以直接操作内存
  
  
 
